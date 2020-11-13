@@ -1,0 +1,922 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.ui-dialog .ui-dialog-content {
+    background-color: #9bc7c9;
+}
+
+.sheet-preload {
+  opacity: 0;
+  position: absolute;
+}
+
+.sheet-preload img {
+  width: 1px;
+  height: 1px;
+}
+
+.charsheet {
+    box-sizing: border-box;
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+}
+.sheet-container {
+    width: 882px;
+    background-color: #E6DED7;
+    color: #7F725E;
+}
+
+h4 {
+    color: #e6dfd1;
+}
+
+h5 {
+    color: #292214;
+}
+
+div,
+span,
+textarea,
+ul,
+li,
+span,
+label {
+  box-sizing: border-box;
+}
+
+label {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-size: 1em;
+    width: auto;
+    display: flex;
+    font-weight: normal;
+}
+
+input[type=text] {
+    width: 100%;
+    font-family: inherit;
+    font-size: 1em;
+    text-shadow: inherit;
+    border: none;
+    border-bottom: 1px solid #4c3613;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    min-height: 22px;
+    padding: 3px 0 0;
+    margin: 3px 0 0;
+    color: #171006;
+    font-weight: 700px;
+}
+
+input[type=number] {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.2em;
+  color: #171006;
+  text-shadow: inherit;
+  border: none;
+  border-bottom: 1px solid #4c3613;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  min-height: 22px;
+  padding: 3px 0 0;
+  margin: 3px 0 0;
+  font-weight: 700px;
+}
+
+select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1em;
+  color: #211605;
+  text-shadow: inherit;
+  border: none;
+  border-bottom: 1px solid #4c3613;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  height: 18px;
+  min-height: 22px;
+  padding: 3px 0 0;
+  margin: 3px 0 0;
+}
+
+.sheet-label,
+input.sheet-label,
+textarea.sheet-label {
+    text-transform: uppercase;
+    text-align: justify;
+    font-size: .8em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.sheet-hidden {
+    display: none !important;
+}
+
+
+/* type selector */
+
+.sheet-type-input:not([value="character"]) ~ .sheet-type-character,
+.sheet-type-input:not([value="headquarters"]) ~ .sheet-type-headquarters,
+.sheet-type-input:not([value="npc"]) ~ .sheet-type-npc,
+.sheet-type-input:not([value="selector"]) ~ .sheet-type-selector {
+	display: none;
+}
+
+.sheet-type-button {
+  border: 1px #000 solid;
+  padding: 4px;
+  margin: 4px;
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+  display: block;
+}
+
+/* sections */
+
+.sheet-header {
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.sheet-section {
+    border: 2px #463212 solid;
+    padding: 4px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background-color: #7F725E;
+    color: #1b2929;
+    border-radius: 3px;
+}
+
+.sheet-marginless-section {
+  padding: 4px;
+  background-color: #7F725E;
+  border: 2px #463212 solid;
+  border-radius: 3px;
+}
+
+.sheet-usedbox {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.sheet-experience {
+  text-align: center
+}
+
+.sheet-conditionbox {
+    margin: 4px;
+}
+
+.sheet-brokencondition {
+    font-weight: bold;
+}
+
+.sheet-condition {
+    display: flex;
+    align-items: center;
+    font-variant: small-caps;
+    font-size: 13px;
+    color: #fff;
+}
+
+.sheet-resources {
+    color: #e6dfd1;
+}
+
+.sheet-statpoints {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* headquarters */
+
+.sheet-auto-expand {
+  position: relative;
+  cursor: text;
+  word-wrap: break-word;
+  line-height: 14px;
+  min-height: 28px;
+}
+
+.sheet-auto-expand span {
+  visibility: hidden;
+  white-space: pre-wrap;
+  display: block;
+}
+
+.sheet-auto-expand textarea {
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  resize: none;
+  height: 100%;
+  word-wrap: break-word;
+  padding: inherit;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+}
+
+.sheet-history {
+  position: relative;
+  cursor: text;
+  word-wrap: break-word;
+  line-height: 17px;
+  min-height: 34px;
+  background: linear-gradient(transparent 16px, #a7a7a7 1px) 0 0/100% 17px;
+  padding: 0 3px;
+  width: 100%;
+  font-size: 13px;
+}
+
+.sheet-history span {
+  visibility: hidden;
+  white-space: pre-wrap;
+  display: block;
+}
+
+.sheet-history textarea {
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  resize: none;
+  height: 100%;
+  word-wrap: break-word;
+  padding: inherit;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+}
+
+.sheet-hq-function {
+  width: 100%;
+  cursor: text;
+  word-wrap: break-word;
+  height: 100%;
+  display: block;
+}
+
+/* Fieldsets */
+
+.repcontrol {
+    display: flex;
+    margin-top: 3px;
+}
+  
+.repcontrol .repcontrol_edit {
+    margin-left: auto;
+    order: 1;
+}
+  
+.repcontrol button {
+    background: transparent;
+    color: #1b2929;
+    border-color: #4c3613;
+    transition: all 0.2s;
+    font-family: pictos;
+    font-size: 0;
+    font-weight: bold;
+    padding: 5px 3px 2px;
+    line-height: 8px;
+    text-shadow: none;
+}
+  
+.repcontrol button:hover {
+    color: black;
+    border-color: black;
+    background: #ddd;
+}
+  
+.repcontrol button.repcontrol_edit::after {
+    content: "(";
+}
+  
+.repcontrol button.repcontrol_add::after {
+    content: "&";
+}
+  
+.repcontrol button.repcontrol_edit::after, .repcontrol button.repcontrol_add::after {
+    font-size: 12px;
+}
+  
+.repcontainer.editmode + .repcontrol button.repcontrol_edit::after {
+    content: ")";
+}
+
+.itemcontrol {
+    z-index: 20;
+}
+
+/* Rollbuttons */
+
+button[type="roll"].sheet-skill-button,
+ button[type="action"].sheet-skill-button {
+  display: flex;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-shadow: none;
+  background: transparent;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  outline: none;
+  border-radius: 0;
+  transition: all 0.2s;
+  z-index: 3;
+}
+
+button[type="roll"].sheet-skill-button.btn::before,
+button[type="action"].sheet-skill-button.btn::before {
+  content: "";
+}
+
+button[type="roll"].sheet-skill-button:hover,
+button[type="action"].sheet-skill-button:hover {
+  color: #466e6e;
+}
+
+button[type="roll"].sheet-skill-button.btn {
+    font-variant: small-caps;
+    font-size: 12px;
+    font-weight: bold;
+    color: #f9f6f0;
+  }
+
+.sheet-fullbutton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.sheet-die {
+  font-family: pictos;
+  font-variant: normal;
+  padding-right: 4px;
+}
+
+/* CHECKBOXES */
+
+label input[type="checkbox"],
+label input[type="radio"] {
+  position: absolute;
+}
+
+label:hover input[type="checkbox"] + span,
+label:hover input[type="radio"] + span {
+  opacity: 0.7;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  opacity: 0;
+  z-index: 1;
+  -moz-appearance: none;
+  vertical-align: unset;
+  position: relative;
+}
+
+input[type="checkbox"] + span,
+input[type="radio"] + span {
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.2s, opacity 0s;
+}
+
+input.sheet-checkbox {
+    height: 12px;
+    width: 12px;
+    flex: 0 0 auto;
+    margin-right: -12px;
+  }
+  
+  .sheet-checkbox {
+    /* square by default */
+  }
+  
+  .sheet-checkbox + span {
+    height: 12px;
+    width: 12px;
+    flex: 0 0 auto;
+    background: white;
+    border: 1px solid black;
+  }
+  
+  .sheet-checkbox:checked + span {
+    background: #466e6e;
+  }
+  
+  .sheet-checkbox:hover + span {
+    opacity: 0.7;
+  }
+  
+  .sheet-checkbox:checked ~ .sheet-colored-if-checked {
+    color: #466e6e;
+  }
+  
+  .sheet-checkbox:last-child + span {
+    margin-right: 0 !important;
+  }
+
+  .sheet-checkbox.sheet-small {
+    height: 10px;
+    width: 10px;
+    margin-right: -10px;
+  }
+  
+  .sheet-checkbox.sheet-small + span {
+    height: 10px;
+    width: 10px;
+  }
+  
+  .sheet-checkbox.sheet-large {
+    height: 14px;
+    width: 14px;
+    margin-right: -14px;
+  }
+  
+  .sheet-checkbox.sheet-large + span {
+    height: 14px;
+    width: 14px;
+  }
+  
+  .sheet-floatingbar {
+    width: 2px;
+    height: 2px;
+    flex: 0 0 auto;
+    background: black;
+  }
+  
+  /* Fake radios */
+  .sheet-checkbox.sheet-fakeradio + span {
+    background: #666666;
+  }
+  
+  .sheet-fakeradio:checked ~ .sheet-fakeradio + span {
+    background: white;
+  }
+
+/* Roll Templates */
+
+.sheet-rolltemplate-vaesen-d66 .inlinerollresult,
+.sheet-rolltemplate-vaesen-resources .inlinerollresult,
+.sheet-rolltemplate-vaesen-skill .inlinerollresult {
+  border: none !important;
+  background-color: transparent;
+  font-weight: bold;
+  padding: 0 3px 0 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 50px;
+  color: white;
+}
+
+.sheet-rolltemplate-vaesen-d66 .sheet-vaesen-d66-roll .sheet-vaesen-d66-roll-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: left;
+  color: white;
+  font-size: 16px;
+  position: relative;
+  top: -40px;
+}
+
+.sheet-rolltemplate-vaesen-resources .sheet-vaesen-resources-roll .sheet-vaesen-resources-roll-title,
+.sheet-rolltemplate-vaesen-skill .sheet-vaesen-skill-roll .sheet-vaesen-skill-roll-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: left;
+  color: white;
+  font-size: 16px;
+  position: relative;
+  top: -30px;
+}
+
+.sheet-rolltemplate-vaesen-resources .sheet-vaesen-resources-roll .sheet-vaesen-resources-roll-successtext,
+.sheet-rolltemplate-vaesen-skill .sheet-vaesen-skill-roll .sheet-vaesen-skill-roll-successtext {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  padding-top: 4px;
+}
+
+.sheet-rolltemplate-vaesen-d66 .sheet-vaesen-d66-roll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 30px 0 0;
+  text-align: center;
+  padding: 10px;
+  width: 200px;
+  height: 125px;
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Vaesen-dodgepong/Assets/vaesen-d66.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.sheet-rolltemplate-vaesen-resources .sheet-vaesen-resources-roll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 30px 0 0;
+  text-align: center;
+  padding: 10px;
+  width: 200px;
+  height: 125px;
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Vaesen-dodgepong/Assets/vaesen-resources.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+.sheet-rolltemplate-vaesen-skill .sheet-vaesen-skill-roll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 30px 0 0;
+  text-align: center;
+  padding: 10px;
+  width: 200px;
+  height: 125px;
+}
+
+.sheet-rolltemplate-vaesen-skill .sheet-vaesen-skill-roll-fail {
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Vaesen-dodgepong/Assets/vaesen-fail.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.sheet-rolltemplate-vaesen-skill .sheet-vaesen-skill-roll-success {
+  background-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Vaesen-dodgepong/Assets/vaesen-success.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.sheet-rolltemplate-vaesen-talent .sheet-container {
+    background-color: #E6DED7;
+    border: 1px solid #7F725E;
+    padding: 2px;
+    width: 295px;
+    font-family: 'Playfair Display', serif;
+}
+
+.sheet-rolltemplate-vaesen-talent .sheet-container h1 {
+    color: #7F725E;
+    font-size: 1.2em;
+    font-variant: small-caps;
+    line-height: 20px;
+}
+
+.sheet-rolltemplate-vaesen-talent div {
+    padding: 2px;
+}
+ 
+.sheet-rolltemplate-vaesen-talent .sheet-tnam {
+    color: #7F725E;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.2em;
+    font-variant: small-caps;
+    line-height: 1.6em;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: left;
+    font-weight: 900;
+}
+ 
+.sheet-rolltemplate-vaesen-talent .sheet-subheader {
+    color: #563a0f;
+    font-size: 1em;
+    font-style: italic;
+    font-variant: small-caps;
+    font-weight: 900;
+}
+ 
+.sheet-rolltemplate-vaesen-talent .sheet-arrow-right {
+    border-bottom: 2px solid transparent;
+    border-left: 180px solid #7F725E;
+    border-top: 2px solid transparent;
+}
+ 
+.sheet-rolltemplate-vaesen-talent .sheet-tcat {
+    font-style: italic;
+    font-weight: 600;
+}
+
+.sheet-rolltemplate-vaesen-magic-item .sheet-container {
+    background-color: #E6DED7;
+    border: 1px solid #7F725E;
+    padding: 2px;
+    width: 295px;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+
+.sheet-rolltemplate-vaesen-magic-item .sheet-container h1 {
+    color: #7F725E;
+    font-size: 1.2em;
+    font-variant: small-caps;
+    line-height: 20px;
+}
+
+.sheet-rolltemplate-vaesen-magic-item div {
+    padding: 2px;
+}
+ 
+.sheet-rolltemplate-vaesen-magic-item .sheet-tnam {
+    color: #1b2929;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.2em;
+    font-variant: small-caps;
+    line-height: 1.6em;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: left;
+    font-weight: 900;
+}
+ 
+.sheet-rolltemplate-vaesen-magic-item .sheet-subheader {
+    color: #563a0f;
+    font-size: 1em;
+    font-style: italic;
+    font-variant: small-caps;
+    font-weight: 900;
+}
+ 
+.sheet-rolltemplate-vaesen-magic-item .sheet-arrow-right {
+    border-bottom: 2px solid transparent;
+    border-left: 180px solid #7F725E;
+    border-top: 2px solid transparent;
+}
+ 
+.sheet-rolltemplate-vaesen-magic-item .sheet-tcat {
+    font-style: italic;
+}
+
+/*vaesen-rule*/
+
+.sheet-rolltemplate-vaesen-rule .sheet-container {
+    background-color: #E6DED7;
+    border: 1px solid #7F725E;
+    padding: 2px;
+    width: 295px;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+
+.sheet-rolltemplate-vaesen-rule .sheet-container h1 {
+    color: #7F725E;
+    font-size: 1.2em;
+    font-variant: small-caps;
+    line-height: 20px;
+}
+
+.sheet-rolltemplate-vaesen-rule div {
+    padding: 2px;
+}
+ 
+.sheet-rolltemplate-vaesen-rule .sheet-arrow-right {
+    border-bottom: 2px solid transparent;
+    border-left: 180px solid #7F725E;
+    border-top: 2px solid transparent;
+}
+ 
+.sheet-rolltemplate-vaesen-rule .sheet-tcat {
+    font-style: italic;
+}
+
+/*vaesen-table*/
+
+.sheet-rolltemplate-vaesen-table .sheet-container {
+    background-color: #E6DED7;
+    border: 1px solid #7F725E;
+    padding: 2px;
+    width: 300px;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+
+.sheet-rolltemplate-vaesen-table .sheet-container h1 {
+    color: #7F725E;
+    font-size: 1.2em;
+    font-variant: small-caps;
+    line-height: 20px;
+}
+
+.sheet-rolltemplate-vaesen-table div {
+    padding: 2px;
+}
+
+.sheet-rolltemplate-vaesen-table .sheet-list div.sheet-flex:nth-of-type(even) {
+    background-color: #fff;
+}
+ 
+.sheet-rolltemplate-vaesen-table .sheet-arrow-right {
+    border-bottom: 2px solid transparent;
+    border-left: 180px solid #7F725E;
+    border-top: 2px solid transparent;
+}
+
+.sheet-rolltemplate-vaesen-table .sheet-key {
+    font-style: italic;
+    width: 160px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.sheet-rolltemplate-vaesen-table .sheet-value {
+    font-weight: 900;
+    width: 120px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.sheet-rolltemplate-vaesen-table .sheet-flex {
+    display: flex;
+}
+
+/* vaesen-list */
+
+.sheet-rolltemplate-vaesen-list .sheet-container {
+    background-color: #E6DED7;
+    border: 1px solid #7F725E;
+    padding: 2px;
+    width: 300px;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+
+.sheet-rolltemplate-vaesen-list .sheet-container h1 {
+    color: #7F725E;
+    font-size: 1.2em;
+    font-variant: small-caps;
+    line-height: 20px;
+}
+
+.sheet-rolltemplate-vaesen-list div {
+    padding: 2px;
+}
+
+.sheet-rolltemplate-vaesen-list .sheet-list div:nth-child(even) {
+    background-color: #fff;
+}
+ 
+.sheet-rolltemplate-vaesen-list .sheet-arrow-right {
+    border-bottom: 2px solid transparent;
+    border-left: 180px solid #7F725E;
+    border-top: 2px solid transparent;
+}
+
+.sheet-rolltemplate-vaesen-list .sheet-value {
+    width: 285px;
+    padding-left: 5px;
+    padding-top: 5px;
+    font-style: italic;
+}
+
+/* COLUMN LAYOUT */
+.sheet-flex {
+    display: flex;
+}
+.sheet-flex-center {
+    display: flex;
+    align-items: center;
+}
+.sheet-flex-centerall {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sheet-flex-layout {
+    display: flex;
+    align-items: flex-start;
+}
+.sheet-flex-wrap {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.sheet-col5 {
+    width: 5%;
+}
+.sheet-col10 {
+    width: 10%;
+}
+.sheet-col15 {
+    width: 15%;
+}
+.sheet-col20 {
+    width: 20%;
+}
+.sheet-col25 {
+    width: 25%;
+}
+.sheet-col30 {
+    width: 30%;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+.sheet-col33 {
+    width: 33%;
+}
+.sheet-col35 {
+    width: 35%;
+}
+.sheet-col40 {
+    width: 35%;
+}
+.sheet-col50 {
+    width: 50%;
+}
+.sheet-col55 {
+    width: 55%;
+}
+.sheet-col40 {
+    width: 40%;
+}
+.sheet-col45 {
+    width: 45%;
+}
+.sheet-col60 {
+    width: 60%;
+}
+.sheet-col65 {
+    width: 65%;
+}
+.sheet-col70 {
+    width: 70%;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+.sheet-col75 {
+    width: 75%;
+}
+.sheet-col85 {
+    width: 85%;
+}
+.sheet-col90 {
+    width: 90%;
+}
+.sheet-col100 {
+    width: 100%;
+}
+.sheet-colspace {
+    margin-right: 8px; 
+}
+.sheet-colpad {
+    padding-right: 8px; 
+}
+
+.sheet-rolltemplate-default {
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+.sheet-rolltemplate-default caption {
+    background-color: #7F725E;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-variant: small-caps;
+    font-size: 1.2em;
+}
+
+.sheet-rolltemplate-default tbody {
+    background-color: #E6DED7;
+}
+
+.sheet-rolltemplate-default a[href^="~"] {
+    background-color: transparent;
+    padding: 0px;
+    color: #ce0f69;
+    display: inline-block;
+    border: none;
+    font-weight: 600;
+}
+
+.sheet-rolltemplate-default td:first-child {
+    text-align: right;
+    min-width: 1px;
+    padding-right: 5px;
+}
+
+.sheet-rolltemplate-default table {
+    border-color: #7F725E;
+    width: 0%;
+}

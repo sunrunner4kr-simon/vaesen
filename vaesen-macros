@@ -1,0 +1,42 @@
+Character - Macros
+
+Rules-Menu
+
+&{template:default} {{name=Rules Menu}}{{CONFLICT
+[Fast Actions](~Fast-Actions)
+[Slow Actions](~Slow-Actions)
+EFFECTS
+[Poison](~Poison)
+TERRIFIED
+[Flee](~Flee)
+[Freeze](~Freeze)
+[Faint](~Faint)
+[Attack](~Attack)}}
+
+Fast-Actions
+
+&{template:vaesen-table}{{name=Typical Fast Actions}}{{Draw weapon/Swap weapon=-}}{{Stand Up=-}}{{Dodge(reaction)=AGILITY}}{{Parry(reaction)=CLOSE COMBAT/FORCE}}{{Break free(reaction)=FORCE}}{{Hold(reaction)=FORCE}}{{Chase(reaction=AGILITY}}{{Resist magic(reaction)=Depends on the magic}}{{Shout more than a few words=-}}{{Turn around=-}}{{Close a door=-}}{{Put out a candle=-}}{{Move within the zone=-}}{{Move into the next zone=-}}{{Take cover=-}}
+
+Slow-Actions
+
+&{template:vaesen-table}{{name=Typical Slow Actions}}{{Attack with melee weapon=CLOSE COMBAT}}{{Attack with ranged weapon=RANGED COMBAT}}{{Unarmed attack=FORCE}}{{Wrestle, push, grapple=FORCE}}{{Flee=AGILITY}}{{Persuade=MANIPULATION}}{{Lure enemy to a certain place=AGILITY}}{{Perform ritual=-}}{{Survey the situation=VIGILANCE}}{{Treat injuries=MEDICINE}}{{Climb a wall=AGILITY}}
+
+Poison
+
+&{template:vaesen-list}{{name=Poison}}{{1=Roll toxicity x d6 against **FORCE**}}{{2=**Tie**  One Condition}}{{3=**Fail**  Condition x Successes}}{{4=Acquire conditions each subsequent round, though one fewer, until Broken. Unless taken antidote or passed MEDICINE test with as many successes as poison's damage}}
+
+Flee
+
+&{template:vaesen-rule}{{title=FLEE}}{{result=You must use all your actions to flee from the thing that frightens you. There is no time to pick things up, talk, or help someone else. You choose the nearest and fastest way out of there.}}
+
+Freeze
+
+&{template:vaesen-rule}{{title=Freeze}}{{result=Your body refuses to move, rendering you completely immobile. You cannot talk or perform any actions whatsoever. If you are in a dark or concealed position, it takes a successful **VIGILANCE** test to spot you.}}
+
+Faint
+
+&{template:vaesen-rule}{{title=Faint}}{{result=Your body goes limp, and a veil of darkness descends over the world. If you are lying in a dark or concealed position, it takes a successful VIGILANCE test to spot you.}}
+
+Attack
+
+&{template:vaesen-rule}{{title=Attack}}{{result=You attack the nearest hostile person or creature with whatever weapon you are currently holding. You lose the ability to make strategic choices, and will not stop attacking until the enemy is vanquished. You cannot perform any fast actions. If there are no enemies nearby, you explode in a fit of rage and start breaking things around you.}}

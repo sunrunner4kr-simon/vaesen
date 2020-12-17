@@ -1,0 +1,5 @@
+Character - Magic Items
+
+PowderedStagHorn
+
+&{template:default}{{name=Magic Item}}{{Item=🦌Powdered Stag's Horn}}{{Effect=Use **OBSERVATION** to resist temptations of vaesen}}{{Risk=The player character feels unloved and suffers one mental Condition every hour, until someone succeeds with **INSPIRATION**}}
